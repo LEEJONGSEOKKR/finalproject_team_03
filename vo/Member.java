@@ -15,7 +15,6 @@ public class Member {
 	private int userage;
 	private int usergrade;
 	
-	
 	@Override
 	public String toString() {
 		return "Member [username=" + username + ", userid=" + userid + ", userpassword=" + userpassword + ", useremail="
