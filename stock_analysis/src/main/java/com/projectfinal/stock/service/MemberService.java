@@ -11,17 +11,15 @@ public class MemberService {
 	
 	@Autowired
 	MemberDAO memberDAO;
-	
-	public void memberInsert(Member m) throws Exception {
-		
-		memberDAO.memberInsert(m);
-		
-		
-	}
 
-	public String login(Member m) throws Exception {
-		return memberDAO.login(m);
-	}
+	public void memberInsert(Member m) throws Exception{
+	      memberDAO.memberInsert(m);
+	      
+	   }
+
+	   public String login(Member m) throws Exception{      
+	      return memberDAO.login(m);
+	   }
 	
 	
 

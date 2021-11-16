@@ -61,10 +61,26 @@ select level,articleNO,parentNO,LPAD(' ', 4*(LEVEL-1)) || title title,content,wr
 order siblings by articleNO desc
       ]]>
    </select>
+   
+		<insert id="boardWrite0" parameterType="board">
+         insert into board(title,content,id,writeDate,parentNO) 
+         values(#{title}, #{content}, #{id}, SYSDATE, #{parentNO}) 
+      </insert>
+
 
       <insert id="boardWrite" parameterType="board">
          insert into board(title,content,id,writeDate,parentNO) 
-         values(#{title}, #{content}, dfdef , SYSDATE, #{parentNO}) 
+         values(#{title}, #{content}, #{id}, SYSDATE, #{parentNO}) 
       </insert>
+      
+      	<insert id = "insertFile" parameterType="file">
+			insert into filelist2 values(file_seq.nextval,#{originalFileName},#{savedFileName},#{articleNO})
+		</insert>
+		
+		<select id = "getFiles" parameterType="int" resultType = "file">
+			select fileNum, originalFileName, savedFileName
+			from fileList
+			where articleNO=#{articleNO}
+		</select>
       
 </mapper>
